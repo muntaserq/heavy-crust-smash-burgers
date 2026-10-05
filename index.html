@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Heavy Crust Smash Co. | Ultra-Smashed Burgers & Beef Tallow Fries</title>
+  <meta name="description" content="San Francisco's favorite ultra-crispy lace-edge smash burgers. 100% Wagyu brisket blend, Martin's Potato Rolls, beef tallow crinkle fries, and hand-spun frozen custard.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            griddle: {
+              900: '#14110e',
+              950: '#0a0807',
+            },
+            mustard: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+            sizzle: {
+              500: '#ef4444',
+              600: '#dc2626',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+    button, a, input, select, textarea {
+      touch-action: manipulation;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF8F5] text-stone-900 font-sans antialiased selection:bg-mustard-500 selection:text-black overflow-x-hidden">
+
+  <!-- ==================== TOP RUNNING STATUS BAR ==================== -->
+  <div class="bg-sizzle-600 text-white text-[11px] sm:text-xs py-2 px-3 sm:px-4 font-bold tracking-wider uppercase border-b border-sizzle-700">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5 sm:gap-2 text-center sm:text-left">
+      <div class="flex items-center gap-2 justify-center">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-white animate-ping shrink-0"></span>
+        <span class="truncate sm:whitespace-normal">🔥 GRIDDLE RUNNING AT 650°F • AVERAGE PICKUP TIME: 8–10 MINS • ORDER AHEAD FOR ZERO WAIT</span>
+      </div>
+      <div class="flex items-center gap-4 sm:gap-6 font-semibold text-white/90 text-[11px] sm:text-xs">
+        <span class="hidden xs:flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> Open Until 11:00 PM</span>
+        <a href="tel:4158293340" class="hover:text-white transition-colors flex items-center gap-1"><i data-lucide="phone" class="w-3.5 h-3.5"></i> (415) 829-3340</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== STICKY NAVIGATION ==================== -->
+  <header class="sticky top-0 z-50 bg-[#FAF8F5]/95 backdrop-blur-md border-b-2 border-stone-900/10 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-griddle-950 flex items-center justify-center text-mustard-400 shadow-md group-hover:scale-105 transition-transform">
+          <i data-lucide="flame" class="w-5 h-5 text-mustard-400"></i>
+        </div>
+        <div>
+          <span class="font-display text-xl sm:text-2xl font-black tracking-tight text-griddle-950 block leading-none">HEAVY CRUST</span>
+          <span class="text-[9px] sm:text-[10px] tracking-[0.25em] uppercase text-sizzle-600 font-extrabold mt-0.5 block">SMASH BURGER CO.</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-7 lg:gap-8 text-sm font-bold text-stone-800">
+        <a href="#customizer" class="hover:text-sizzle-600 transition-colors flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-sizzle-500 animate-pulse"></span> Build Your Smash
+        </a>
+        <a href="#menu" class="hover:text-sizzle-600 transition-colors">Menu</a>
+        <a href="#science" class="hover:text-sizzle-600 transition-colors">The Lace Science</a>
+        <a href="#catering" class="hover:text-sizzle-600 transition-colors">Party Burger Drops</a>
+        <a href="#location" class="hover:text-sizzle-600 transition-colors">Locations</a>
+        <a href="#faq" class="hover:text-sizzle-600 transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="hidden lg:flex items-center gap-4">
+        <button onclick="openOrderModal()" class="px-6 py-2.5 rounded-full bg-mustard-500 hover:bg-mustard-400 text-stone-950 font-black text-sm tracking-wide uppercase shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center gap-2 border-2 border-stone-900">
+          <span>Order Pickup</span>
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-stone-950"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Button Area -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button onclick="openOrderModal()" class="px-3.5 py-1.5 rounded-full bg-mustard-500 text-stone-950 font-black text-xs uppercase flex items-center gap-1 shadow-sm border border-stone-900">
+          <span>Order</span>
+          <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+        </button>
+        <button id="mobileMenuBtn" aria-label="Toggle menu" class="w-10 h-10 flex items-center justify-center rounded-xl text-stone-900 hover:bg-stone-200 active:bg-stone-300 transition-colors focus:outline-none">
+          <i id="menuIcon" data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-b-2 border-stone-900 px-5 py-6 shadow-2xl transition-all">
+      <div class="flex flex-col gap-3 text-base font-bold text-stone-900">
+        <a href="#customizer" class="mobile-link py-2.5 px-2 border-b border-stone-100 text-sizzle-600 flex items-center justify-between">
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sizzle-500"></span> Build Your Custom Smash</span>
+          <i data-lucide="sparkles" class="w-4 h-4 text-sizzle-600"></i>
+        </a>
+        <a href="#menu" class="mobile-link py-2.5 px-2 border-b border-stone-100 flex items-center justify-between">
+          <span>Full Menu & Shakes</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
+        </a>
+        <a href="#science" class="mobile-link py-2.5 px-2 border-b border-stone-100 flex items-center justify-between">
+          <span>The Crispy Lace Science</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
+        </a>
+        <a href="#catering" class="mobile-link py-2.5 px-2 border-b border-stone-100 flex items-center justify-between">
+          <span>Office & Party Burger Drops</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
+        </a>
+        <a href="#location" class="mobile-link py-2.5 px-2 border-b border-stone-100 flex items-center justify-between">
+          <span>Hours & Pickups</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
+        </a>
+        <a href="#faq" class="mobile-link py-2.5 px-2 border-b border-stone-100 flex items-center justify-between">
+          <span>FAQ (Zero Seed Oils)</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
+        </a>
+        <div class="pt-2 flex flex-col gap-2.5">
+          <button onclick="openOrderModal(); toggleMobileMenu();" class="w-full py-3.5 rounded-xl bg-mustard-500 text-stone-950 font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md border-2 border-stone-900">
+            <span>Start Pickup Order</span>
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          </button>
+          <a href="tel:4158293340" class="w-full py-3 rounded-xl bg-stone-100 text-stone-900 font-bold text-xs flex items-center justify-center gap-2">
+            <i data-lucide="phone" class="w-3.5 h-3.5 text-sizzle-600"></i> Call Shop: (415) 829-3340
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative pt-8 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-32 overflow-hidden bg-[#FAF8F5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        
+        <!-- Left: Copy & Actions -->
+        <div class="lg:col-span-7 space-y-5 sm:space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-mustard-400/30 border border-mustard-500 text-stone-950 text-[11px] sm:text-xs font-black tracking-wider uppercase">
+            <i data-lucide="trophy" class="w-3.5 h-3.5 text-mustard-600"></i>
+            <span>Voted #1 Smash Burger In SF • Eater SF 2025</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-griddle-950 leading-[1.08] break-words uppercase">
+            Lacy, crispy edges. <span class="text-sizzle-600 underline decoration-mustard-500 decoration-wavy">Dripping cheese.</span> Zero filler.
+          </h1>
+
+          <p class="text-base sm:text-xl text-stone-700 font-medium leading-relaxed max-w-2xl">
+            100% fresh dry-aged Wagyu-brisket blend, smashed hard onto a 650°F chrome flat-top to create paper-thin caramelized lattice edges. Served on genuine Martin’s Potato Rolls griddled in beef tallow.
+          </p>
+
+          <!-- Dual CTAs -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2 sm:pt-4">
+            <button onclick="openOrderModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-mustard-500 hover:bg-mustard-400 text-stone-950 font-black text-sm sm:text-base tracking-wide uppercase transition-all shadow-xl hover:shadow-2xl border-2 border-stone-900 flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+              <span>Order Online For Pickup</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 text-stone-950"></i>
+            </button>
+            <a href="#customizer" class="w-full sm:w-auto px-7 py-4 rounded-full bg-white hover:bg-stone-100 border-2 border-stone-900 text-stone-900 font-black text-sm sm:text-base tracking-wide uppercase transition-all flex items-center justify-center gap-2">
+              <i data-lucide="sliders" class="w-4 h-4 text-sizzle-600"></i>
+              <span>Build Custom Burger</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges Bar -->
+          <div class="pt-6 sm:pt-8 border-t-2 border-stone-900/10 grid grid-cols-3 gap-3 sm:gap-6">
+            <div>
+              <div class="text-2xl sm:text-4xl font-display font-black text-griddle-950">100%</div>
+              <div class="text-[10px] sm:text-xs text-stone-600 font-bold uppercase tracking-wider mt-0.5">Wagyu Brisket Blend</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-4xl font-display font-black text-sizzle-600">0%</div>
+              <div class="text-[10px] sm:text-xs text-stone-600 font-bold uppercase tracking-wider mt-0.5">Seed Oils • Pure Tallow</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-4xl font-display font-black text-griddle-950">&lt; 10 Min</div>
+              <div class="text-[10px] sm:text-xs text-stone-600 font-bold uppercase tracking-wider mt-0.5">Fast Pickup Window</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual Hero Card -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <!-- Ambient Glow -->
+            <div class="absolute -inset-4 bg-gradient-to-tr from-mustard-400/40 via-sizzle-500/30 to-amber-200/40 rounded-3xl blur-2xl -z-10"></div>
+            
+            <!-- Burger Showcase Card -->
+            <div class="relative bg-white rounded-3xl p-3 shadow-2xl border-2 border-stone-900 overflow-hidden">
+              <div class="relative h-[340px] sm:h-[460px] lg:h-[500px] rounded-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80" alt="Double Smash Burger with crispy lace edges" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                
+                <div class="absolute bottom-3 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-5 p-3.5 sm:p-4 rounded-xl bg-white/95 backdrop-blur-md border border-stone-900 shadow-xl">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <span class="text-[10px] sm:text-xs uppercase tracking-wider text-sizzle-600 font-black block">The Signature Heavyweight</span>
+                      <h4 class="font-display font-black text-base sm:text-xl text-stone-950">Double Smash Oklahoma Onion</h4>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-md bg-mustard-400 text-stone-950 text-xs font-black">$12.50</span>
+                  </div>
+                  <p class="text-[11px] sm:text-xs text-stone-600 font-medium mt-1.5">Twin 3oz lace-crusted patties, double American, griddled shaved Vidalia onions, dill pickles, secret Heavy Sauce on Martin's Potato Roll.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini Floating Badge -->
+            <div class="hidden sm:flex absolute -bottom-4 -left-4 bg-stone-950 text-white rounded-2xl p-3.5 shadow-2xl border-2 border-mustard-400 items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-mustard-400 flex items-center justify-center text-stone-950 font-black">
+                <i data-lucide="zap" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-xs font-black text-white">4.9 / 5.0 Star Rating</div>
+                <div class="text-[10px] text-stone-300">1,200+ Verified Foodies</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VIRAL PRESS & CRITICS ==================== -->
+  <section class="py-7 bg-mustard-400 border-y-2 border-stone-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-12 md:gap-16 font-display font-black text-stone-950 text-base sm:text-2xl tracking-tighter uppercase opacity-95">
+        <span>EATER SF</span>
+        <span>•</span>
+        <span>THE INFATUATION</span>
+        <span>•</span>
+        <span>SF CHRONICLE</span>
+        <span>•</span>
+        <span>FOODBEAST</span>
+        <span>•</span>
+        <span>BARSTOOL ONE BITE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== THE LACE SCIENCE / BENTO GRID ==================== -->
+  <section id="science" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3 sm:space-y-4">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-mustard-100 text-stone-950 text-[11px] sm:text-xs font-black uppercase tracking-wider border border-mustard-300">
+          Why Our Burgers Slap Harder
+        </span>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-griddle-950 uppercase">
+          The anatomy of an ultra-smash.
+        </h2>
+        <p class="text-stone-600 text-base sm:text-lg font-medium">
+          Ordinary burger joints serve thick, soggy hockey pucks. We smash paper-thin with extreme localized pressure to unlock maximum Maillard crispiness.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Bento 1: 650°F Chrome Smasher -->
+        <div class="md:col-span-2 bg-[#FAF8F5] rounded-3xl p-6 sm:p-10 border-2 border-stone-900 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="space-y-3 sm:space-y-4">
+            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-sizzle-600 text-white flex items-center justify-center shadow-md">
+              <i data-lucide="flame" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            </div>
+            <div class="inline-block px-3 py-1 rounded-full bg-white text-stone-950 text-xs font-bold border border-stone-200">The 650°F Chromium Press</div>
+            <h3 class="font-display text-2xl sm:text-3xl font-black text-stone-950 uppercase">Caramelized Crispy Lace Lattice</h3>
+            <p class="text-stone-600 text-sm sm:text-base font-medium leading-relaxed max-w-xl">
+              Using a custom 10-pound cast-iron dumbbell press, we flatten cold ground beef balls into 1/8-inch discs against mirror-finished 650°F chrome steel. The fat renders instantly, forging an ultra-crisp umami crust that extends beyond the bun.
+            </p>
+          </div>
+          <div class="mt-6 sm:mt-8 rounded-2xl overflow-hidden h-52 sm:h-64 relative border border-stone-900">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80" alt="Griddling smash burgers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3 text-white text-[11px] sm:text-xs font-bold bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full">100% Maillard Reaction • 45 Seconds Per Side</span>
+          </div>
+        </div>
+
+        <!-- Bento 2: The Beef Blend -->
+        <div class="bg-[#FAF8F5] rounded-3xl p-6 sm:p-8 border-2 border-stone-900 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="space-y-3 sm:space-y-4">
+            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-mustard-500 text-stone-950 flex items-center justify-center shadow-md">
+              <i data-lucide="beef" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            </div>
+            <div class="inline-block px-3 py-1 rounded-full bg-white text-stone-950 text-xs font-bold border border-stone-200">The 80/20 Tri-Blend</div>
+            <h3 class="font-display text-xl sm:text-2xl font-black text-stone-950 uppercase">Brisket, Short Rib & Chuck</h3>
+            <p class="text-stone-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Coarsely ground fresh daily from hormone-free California cattle. Rich marbling ensures the patty stays juicy even under extreme smash heat.
+            </p>
+          </div>
+          <div class="mt-6 rounded-2xl overflow-hidden h-44 sm:h-48 relative border border-stone-900">
+            <img src="https://images.unsplash.com/photo-1588168333986-5078d3ae3976?auto=format&fit=crop&w=800&q=80" alt="Raw beef blend" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          </div>
+        </div>
+
+        <!-- Bento 3: Beef Tallow Fries -->
+        <div class="bg-[#FAF8F5] rounded-3xl p-6 sm:p-8 border-2 border-stone-900 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="space-y-3 sm:space-y-4">
+            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-stone-950 text-mustard-400 flex items-center justify-center shadow-md">
+              <i data-lucide="sparkles" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            </div>
+            <div class="inline-block px-3 py-1 rounded-full bg-white text-stone-950 text-xs font-bold border border-stone-200">Zero Seed Oils</div>
+            <h3 class="font-display text-xl sm:text-2xl font-black text-stone-950 uppercase">100% Beef Tallow Crinkle Fries</h3>
+            <p class="text-stone-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Idaho Russets double-blanched and kettle-fried in pure grass-fed beef tallow for that old-school McDonald's 1970s crunch.
+            </p>
+          </div>
+          <div class="mt-6 rounded-2xl overflow-hidden h-44 sm:h-48 relative border border-stone-900">
+            <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80" alt="Crinkle cut fries in beef tallow" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          </div>
+        </div>
+
+        <!-- Bento 4: The Potato Roll -->
+        <div class="bg-[#FAF8F5] rounded-3xl p-6 sm:p-8 border-2 border-stone-900 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="space-y-3 sm:space-y-4">
+            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-mustard-400 text-stone-950 flex items-center justify-center shadow-md">
+              <i data-lucide="award" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            </div>
+            <div class="inline-block px-3 py-1 rounded-full bg-white text-stone-950 text-xs font-bold border border-stone-200">The Golden Standard</div>
+            <h3 class="font-display text-xl sm:text-2xl font-black text-stone-950 uppercase">Martin's Potato Roll</h3>
+            <p class="text-stone-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Pillowy, buttery, and griddled cut-side down in rendered beef fat. Compresses perfectly without crumbling apart under burger juice.
+            </p>
+          </div>
+          <div class="mt-6 rounded-2xl overflow-hidden h-44 sm:h-48 relative border border-stone-900">
+            <img src="https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=800&q=80" alt="Burger Bun" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          </div>
+        </div>
+
+        <!-- Bento 5: Heavy Sauce -->
+        <div class="bg-[#FAF8F5] rounded-3xl p-6 sm:p-8 border-2 border-stone-900 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="space-y-3 sm:space-y-4">
+            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-sizzle-500 text-white flex items-center justify-center shadow-md">
+              <i data-lucide="droplet" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            </div>
+            <div class="inline-block px-3 py-1 rounded-full bg-white text-stone-950 text-xs font-bold border border-stone-200">Secret Recipe</div>
+            <h3 class="font-display text-xl sm:text-2xl font-black text-stone-950 uppercase">House Heavy Sauce</h3>
+            <p class="text-stone-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Japanese Kewpie mayo base, aged dill pickle brine, smoked Spanish paprika, caramelized onion puree, and cracked black pepper.
+            </p>
+          </div>
+          <div class="mt-6 rounded-2xl overflow-hidden h-44 sm:h-48 relative border border-stone-900">
+            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80" alt="Burger Sauce Dip" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INTERACTIVE BUILD-YOUR-SMASH ORDER ENGINE ==================== -->
+  <section id="customizer" class="py-16 sm:py-24 bg-stone-950 text-white border-y-2 border-stone-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3 sm:space-y-4">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-mustard-500 text-stone-950 text-[11px] sm:text-xs font-black tracking-wider uppercase">
+          <i data-lucide="sliders" class="w-3.5 h-3.5"></i> Interactive Griddle Simulator
+        </span>
+        <h2 class="font-display text-3xl sm:text-5xl font-black uppercase text-white">
+          Build your custom smash stack.
+        </h2>
+        <p class="text-stone-300 text-base sm:text-lg font-normal">
+          Customize your patties, cheese melt, and tallow sides below to generate your exact price and prep time.
+        </p>
+      </div>
+
+      <div class="bg-stone-900 rounded-3xl shadow-2xl border-2 border-mustard-500/80 p-5 sm:p-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+          
+          <!-- Controls (Left) -->
+          <div class="lg:col-span-7 space-y-6 sm:space-y-8">
+            
+            <!-- Step 1: Patty Stack -->
+            <div>
+              <label class="block text-xs sm:text-sm font-black uppercase tracking-wider text-mustard-400 mb-3">
+                1. Select Patty Stack
+              </label>
+              <div class="grid grid-cols-3 gap-2 sm:gap-3">
+                <button type="button" onclick="setPattyStack('single', 8.50, 'Single Smash (3oz)', this)" class="patty-btn p-3 rounded-xl border border-stone-700 bg-stone-850 text-white font-bold text-xs sm:text-sm transition-all text-center">
+                  <div class="font-display text-base sm:text-lg">Single</div>
+                  <div class="text-[10px] text-stone-400">$8.50</div>
+                </button>
+                <button type="button" onclick="setPattyStack('double', 12.50, 'Double Smash (6oz)', this)" class="patty-btn p-3 rounded-xl border-2 border-mustard-500 bg-mustard-500/20 text-mustard-300 font-bold text-xs sm:text-sm transition-all text-center">
+                  <div class="font-display text-base sm:text-lg">Double</div>
+                  <div class="text-[10px] text-mustard-400">$12.50 (Popular)</div>
+                </button>
+                <button type="button" onclick="setPattyStack('triple', 15.50, 'Triple Heavyweight (9oz)', this)" class="patty-btn p-3 rounded-xl border border-stone-700 bg-stone-850 text-white font-bold text-xs sm:text-sm transition-all text-center">
+                  <div class="font-display text-base sm:text-lg">Triple</div>
+                  <div class="text-[10px] text-stone-400">$15.50</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Signature Style -->
+            <div>
+              <label class="block text-xs sm:text-sm font-black uppercase tracking-wider text-mustard-400 mb-3">
+                2. Signature Style & Toppings
+              </label>
+              <div class="space-y-2">
+                <label class="flex items-center justify-between p-3 sm:p-3.5 rounded-xl border-2 border-mustard-500 bg-stone-800 cursor-pointer style-option">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="style" value="oklahoma" checked onchange="updateStyle('Oklahoma Onion Melt', 0)" class="w-4 h-4 text-mustard-500 focus:ring-mustard-400 shrink-0">
+                    <div>
+                      <div class="font-bold text-xs sm:text-sm text-white">The Oklahoma Onion Melt</div>
+                      <div class="text-[11px] text-stone-400">Sweet shaved Vidalia onions pressed directly into hot beef, double American, pickles, Heavy Sauce.</div>
+                    </div>
+                  </div>
+                  <span class="text-xs font-bold text-mustard-400 shrink-0 ml-2">House Fav</span>
+                </label>
+
+                <label class="flex items-center justify-between p-3 sm:p-3.5 rounded-xl border border-stone-700 hover:bg-stone-800 cursor-pointer style-option">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="style" value="jalapeno" onchange="updateStyle('Hot Honey Jalapeño Bacon Jam', 2.00)" class="w-4 h-4 text-mustard-500 focus:ring-mustard-400 shrink-0">
+                    <div>
+                      <div class="font-bold text-xs sm:text-sm text-white">Hot Honey Bacon Jam Smash</div>
+                      <div class="text-[11px] text-stone-400">Crispy bacon jam, charred serranos, habanero hot honey drizzle, pepper jack & american.</div>
+                    </div>
+                  </div>
+                  <span class="text-xs font-bold text-stone-300 shrink-0 ml-2">+$2.00</span>
+                </label>
+
+                <label class="flex items-center justify-between p-3 sm:p-3.5 rounded-xl border border-stone-700 hover:bg-stone-800 cursor-pointer style-option">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="style" value="truffle" onchange="updateStyle('Black Truffle Shallot Smash', 2.50)" class="w-4 h-4 text-mustard-500 focus:ring-mustard-400 shrink-0">
+                    <div>
+                      <div class="font-bold text-xs sm:text-sm text-white">Black Truffle Shallot Smash</div>
+                      <div class="text-[11px] text-stone-400">Black truffle garlic aioli, caramelized shallots, baby swiss melt, Martin's roll.</div>
+                    </div>
+                  </div>
+                  <span class="text-xs font-bold text-stone-300 shrink-0 ml-2">+$2.50</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Step 3: Tallow Sides & Shakes -->
+            <div>
+              <label class="block text-xs sm:text-sm font-black uppercase tracking-wider text-mustard-400 mb-3">
+                3. Add Tallow Sides & Hand-Spun Shakes
+              </label>
+              <div class="space-y-2">
+                <label class="flex items-center justify-between p-3 rounded-xl border border-stone-700 hover:bg-stone-800 cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <input type="checkbox" value="4.50" id="sideFries" onchange="recalculateTotal()" class="w-4 h-4 text-mustard-500 rounded focus:ring-mustard-400 shrink-0">
+                    <div>
+                      <span class="font-bold text-xs sm:text-sm text-white">100% Beef Tallow Crinkle Fries</span>
+                      <span class="text-[11px] text-stone-400 block">Seasoned with house smoked sea salt & paprika</span>
+                    </div>
+                  </div>
+                  <span class="text-xs font-bold text-mustard-400">+$4.50</span>
+                </label>
+
+                <label class="flex items-center justify-between p-3 rounded-xl border border-stone-700 hover:bg-stone-800 cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <input type="checkbox" value="6.50" id="sideShake" onchange="recalculateTotal()" class="w-4 h-4 text-mustard-500 rounded focus:ring-mustard-400 shrink-0">
+                    <div>
+                      <span class="font-bold text-xs sm:text-sm text-white">Salted Malted Caramel Frozen Custard Shake</span>
+                      <span class="text-[11px] text-stone-400 block">Hand-spun Straus organic cream & house bourbon caramel</span>
+                    </div>
+                  </div>
+                  <span class="text-xs font-bold text-mustard-400">+$6.50</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dynamic Output Card (Right) -->
+          <div class="lg:col-span-5 bg-griddle-950 text-white rounded-2xl p-5 sm:p-8 flex flex-col justify-between border-2 border-mustard-500">
+            <div>
+              <div class="flex items-center justify-between border-b border-stone-800 pb-3 sm:pb-4 mb-5 sm:mb-6">
+                <span class="text-[10px] sm:text-xs uppercase tracking-widest text-mustard-400 font-black">Live Order Bag</span>
+                <span class="text-[10px] sm:text-xs text-sizzle-500 font-bold flex items-center gap-1">
+                  <i data-lucide="clock" class="w-3 h-3"></i> 8 Min Pickup
+                </span>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex items-baseline justify-between">
+                  <h4 id="orderStackTitle" class="font-display text-xl sm:text-2xl font-black text-white uppercase">Double Smash (6oz)</h4>
+                  <span id="orderBasePrice" class="font-bold text-mustard-400 text-sm">$12.50</span>
+                </div>
+                <div id="orderStyleTitle" class="text-xs text-mustard-300 font-bold">Style: The Oklahoma Onion Melt</div>
+                
+                <div id="orderAddonsList" class="text-[11px] text-stone-400 space-y-1 pt-2 border-t border-stone-800">
+                  <div>• Genuine Martin's Famous Potato Roll</div>
+                  <div>• Melted American Cheese (Double Layer)</div>
+                  <div>• House Dill Pickles & Heavy Sauce</div>
+                </div>
+
+                <div class="pt-4 border-t border-stone-800 flex justify-between items-baseline">
+                  <span class="text-xs font-bold uppercase text-stone-400">Total Order</span>
+                  <span id="orderTotalPrice" class="font-display text-3xl sm:text-4xl font-black text-mustard-400">$12.50</span>
+                </div>
+              </div>
+
+              <div class="mt-6 p-3 rounded-xl bg-stone-900 border border-stone-800 text-[11px] sm:text-xs text-stone-300 flex items-start gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span>Fresh off the chrome griddle. Boxed hot in vented thermal packaging.</span>
+              </div>
+            </div>
+
+            <div class="mt-6 sm:mt-8">
+              <button onclick="openOrderModal()" class="w-full py-4 rounded-xl bg-mustard-500 hover:bg-mustard-400 text-stone-950 font-black text-xs sm:text-sm tracking-wide uppercase transition-all shadow-xl flex items-center justify-center gap-2 border border-stone-900">
+                <span>Add To Bag & Order Pickup</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+              <div class="text-center text-[10px] text-stone-400 mt-2">Zero platform fees • Direct kitchen pickup</div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FULL RESTAURANT MENU ==================== -->
+  <section id="menu" class="py-16 sm:py-24 bg-white border-b-2 border-stone-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sizzle-500 text-white text-[11px] sm:text-xs font-black tracking-wider uppercase">
+          <i data-lucide="utensils" class="w-3.5 h-3.5"></i> Straight Off The Flat-Top
+        </span>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-griddle-950 uppercase">
+          Full Smash Menu.
+        </h2>
+        <p class="text-stone-600 text-base sm:text-lg font-medium">
+          Simple menu. Ruthless execution. Everything prepared from scratch daily.
+        </p>
+
+        <!-- Category Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 pt-4">
+          <button onclick="filterBurgerMenu('burgers', this)" class="bmenu-tab px-4 py-2 rounded-full text-xs sm:text-sm font-black uppercase bg-stone-950 text-white shadow-sm transition-all border border-stone-900">Smash Burgers</button>
+          <button onclick="filterBurgerMenu('sides', this)" class="bmenu-tab px-4 py-2 rounded-full text-xs sm:text-sm font-black uppercase bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all border border-stone-200">Tallow Fries</button>
+          <button onclick="filterBurgerMenu('shakes', this)" class="bmenu-tab px-4 py-2 rounded-full text-xs sm:text-sm font-black uppercase bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all border border-stone-200">Custard Shakes</button>
+          <button onclick="filterBurgerMenu('drinks', this)" class="bmenu-tab px-4 py-2 rounded-full text-xs sm:text-sm font-black uppercase bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all border border-stone-200">Draft Beer & Sodas</button>
+        </div>
+      </div>
+
+      <!-- Menu Items Container -->
+      <div class="space-y-3 sm:space-y-4" id="burgerItemsContainer">
+        
+        <div class="bitem-card p-5 rounded-2xl bg-[#FAF8F5] border-2 border-stone-900 flex justify-between items-baseline gap-4" data-type="burgers">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-display text-lg sm:text-xl font-black text-stone-950 uppercase">The Double Heavy (Flagship)</h4>
+              <span class="px-2 py-0.5 rounded text-[10px] font-black bg-mustard-400 text-stone-950">Top Seller</span>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">Two 3oz Wagyu smash patties, lace crust, double American cheese, Martin's Potato Roll, grilled Vidalia onions, dill pickles, Heavy Sauce.</p>
+          </div>
+          <span class="font-display text-lg sm:text-xl font-black text-stone-950">$12.50</span>
+        </div>
+
+        <div class="bitem-card p-5 rounded-2xl bg-[#FAF8F5] border-2 border-stone-900 flex justify-between items-baseline gap-4" data-type="burgers">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-display text-lg sm:text-xl font-black text-stone-950 uppercase">The Oklahoma Onion Melt</h4>
+              <span class="px-2 py-0.5 rounded text-[10px] font-black bg-stone-200 text-stone-800">Classic</span>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">Paper-thin shaved sweet onions smashed deep into the beef until crispy caramelized, double cheese, yellow mustard, steamed bun.</p>
+          </div>
+          <span class="font-display text-lg sm:text-xl font-black text-stone-950">$12.50</span>
+        </div>
+
+        <div class="bitem-card p-5 rounded-2xl bg-[#FAF8F5] border-2 border-stone-900 flex justify-between items-baseline gap-4" data-type="burgers">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-display text-lg sm:text-xl font-black text-stone-950 uppercase">Hot Honey Jalapeño Bacon Smash</h4>
+              <span class="px-2 py-0.5 rounded text-[10px] font-black bg-sizzle-500 text-white">Spicy</span>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">Twin patties, house smoked bacon jam, pickled fire-roasted jalapeños, habanero hot honey drizzle, pepper jack & american.</p>
+          </div>
+          <span class="font-display text-lg sm:text-xl font-black text-stone-950">$14.50</span>
+        </div>
+
+        <div class="bitem-card p-5 rounded-2xl bg-[#FAF8F5] border-2 border-stone-900 flex justify-between items-baseline gap-4" data-type="burgers">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-display text-lg sm:text-xl font-black text-stone-950 uppercase">The Triple Heavyweight (9oz)</h4>
+              <span class="px-2 py-0.5 rounded text-[10px] font-black bg-stone-900 text-white">Monster Stack</span>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">Three lacy Wagyu patties, triple American cheese, extra griddled onions, triple Heavy Sauce. Not for the faint of heart.</p>
+          </div>
+          <span class="font-display text-lg sm:text-xl font-black text-stone-950">$15.50</span>
+        </div>
+
+        <!-- Sides -->
+        <div class="bitem-card p-5 rounded-2xl bg-[#FAF8F5] border-2 border-stone-900 hidden justify-between items-baseline gap-4" data-type="sides">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-display text-lg sm:text-xl font-black text-stone-950 uppercase">100% Beef Tallow Crinkle Fries</h4>
+              <span class="px-2 py-0.5 rounded text-[10px] font-black bg-mustard-400 text-stone-950">Zero Seed Oils</span>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">Golden crinkle cut Russet potatoes double-fried in pure grass-fed beef tallow with smoked sea salt.</p>
+          </div>
+          <span class="font-display text-lg sm:text-xl font-black text-stone-950">$4.50</span>
+        </div>
+
+        <div class="bitem-card p-5 rounded-2xl bg-[#FAF8F5] border-2 border-stone-900 hidden justify-between items-baseline gap-4" data-type="sides">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-display text-lg sm:text-xl font-black text-stone-950 uppercase">Loaded "Heavy Dirty" Tallow Fries</h4>
+              <span class="px-2 py-0.5 rounded text-[10px] font-black bg-sizzle-500 text-white">Loaded</span>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">Tallow fries smothered in melted American cheese, griddled Vidalia onions, chopped bacon bits, and Heavy Sauce.</p>
+          </div>
+          <span class="font-display text-lg sm:text-xl font-black text-stone-950">$8.50</span>
+        </div>
+
+        <!-- Shakes -->
+        <div class="bitem-card p-5 rounded-2xl bg-[#FAF8F5] border-2 border-stone-900 hidden justify-between items-baseline gap-4" data-type="shakes">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-display text-lg sm:text-xl font-black text-stone-950 uppercase">Salted Malted Bourbon Caramel Shake</h4>
+              <span class="px-2 py-0.5 rounded text-[10px] font-black bg-amber-200 text-stone-900">Straus Creamery</span>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">Hand-spun organic frozen custard, malted barley, house cooked bourbon caramel, whipped cream, Maldon sea salt.</p>
+          </div>
+          <span class="font-display text-lg sm:text-xl font-black text-stone-950">$6.50</span>
+        </div>
+
+        <div class="bitem-card p-5 rounded-2xl bg-[#FAF8F5] border-2 border-stone-900 hidden justify-between items-baseline gap-4" data-type="shakes">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-display text-lg sm:text-xl font-black text-stone-950 uppercase">Valrhona Dark Chocolate Malt Shake</h4>
+              <span class="px-2 py-0.5 rounded text-[10px] font-black bg-stone-300 text-stone-900">Rich Cocoa</span>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">Ultra-thick frozen custard spun with French Valrhona cocoa fudge and chocolate cookie crumbs.</p>
+          </div>
+          <span class="font-display text-lg sm:text-xl font-black text-stone-950">$6.50</span>
+        </div>
+
+        <!-- Drinks -->
+        <div class="bitem-card p-5 rounded-2xl bg-[#FAF8F5] border-2 border-stone-900 hidden justify-between items-baseline gap-4" data-type="drinks">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-display text-lg sm:text-xl font-black text-stone-950 uppercase">Local IPA on Draft (Fort Point)</h4>
+              <span class="px-2 py-0.5 rounded text-[10px] font-black bg-stone-200 text-stone-800">16oz Pint</span>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">Crisp West Coast IPA poured ice-cold. Cuts straight through rich smash burger fat.</p>
+          </div>
+          <span class="font-display text-lg sm:text-xl font-black text-stone-950">$7.00</span>
+        </div>
+
+        <div class="bitem-card p-5 rounded-2xl bg-[#FAF8F5] border-2 border-stone-900 hidden justify-between items-baseline gap-4" data-type="drinks">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-display text-lg sm:text-xl font-black text-stone-950 uppercase">Mexican Coke & Craft Boylan Sodas</h4>
+              <span class="px-2 py-0.5 rounded text-[10px] font-black bg-stone-200 text-stone-800">Glass Bottle</span>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">Real cane sugar soda in glass bottles (Coca-Cola, Black Cherry, Birch Beer, Root Beer).</p>
+          </div>
+          <span class="font-display text-lg sm:text-xl font-black text-stone-950">$3.75</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CATERING & OFFICE BURGER DROPS ==================== -->
+  <section id="catering" class="py-16 sm:py-24 bg-mustard-400 border-b-2 border-stone-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-7 space-y-5">
+          <span class="inline-block px-3 py-1 rounded-full bg-stone-950 text-white text-[11px] font-black uppercase tracking-wider">
+            Office Lunches & Tailgates
+          </span>
+          <h2 class="font-display text-3xl sm:text-5xl font-black text-stone-950 uppercase leading-tight">
+            Burger drops for 30 to 500+ legends.
+          </h2>
+          <p class="text-stone-900 text-base sm:text-lg font-medium leading-relaxed">
+            Throwing a block party, tech office all-hands, or backyard wedding? We pack hot smash burgers and crispy tallow fries in insulated thermal steam boxes delivered right to your door.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-white border-2 border-stone-900 shadow-sm">
+              <div class="font-display font-black text-stone-950 text-base sm:text-lg uppercase">The 50-Burger Drop</div>
+              <div class="text-xs text-stone-600 font-medium mt-1">50 Double Smashes + 25 Large Tallow Fries + Heavy Sauces. Ideal for small teams.</div>
+            </div>
+            <div class="p-4 rounded-2xl bg-white border-2 border-stone-900 shadow-sm">
+              <div class="font-display font-black text-stone-950 text-base sm:text-lg uppercase">Live Griddle Rig</div>
+              <div class="text-xs text-stone-600 font-medium mt-1">Our mobile chrome trailer cooks live on-site at your private estate or venue.</div>
+            </div>
+          </div>
+
+          <button onclick="openOrderModal()" class="px-8 py-4 rounded-full bg-stone-950 text-white font-black text-sm uppercase tracking-wider hover:bg-stone-850 transition-all shadow-xl flex items-center gap-2">
+            <span>Inquire For Catering Drop</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-mustard-400"></i>
+          </button>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="rounded-3xl overflow-hidden border-2 border-stone-900 shadow-2xl h-72 sm:h-96 relative">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80" alt="Burger Catering Spread" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <span class="absolute bottom-4 left-4 text-white text-xs font-black bg-stone-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">Delivered Hot In Foil Thermal Boxes</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LOCATIONS & STORE HOURS ==================== -->
+  <section id="location" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+        
+        <!-- Location 1 -->
+        <div class="p-8 rounded-3xl bg-[#FAF8F5] border-2 border-stone-900 shadow-md space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full bg-mustard-400 text-stone-950 text-xs font-black uppercase">Flagship Diner</span>
+            <span class="text-xs text-emerald-700 font-bold flex items-center gap-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Open Now
+            </span>
+          </div>
+          <h3 class="font-display text-2xl font-black text-stone-950 uppercase">Hayes Valley Shop</h3>
+          <p class="text-stone-600 text-sm font-medium">380 Gough Street, San Francisco, CA 94102<br>Corner of Linden & Gough</p>
+          <div class="pt-2 border-t border-stone-200 text-xs text-stone-700 space-y-1 font-semibold">
+            <div>Sunday – Thursday: 11:00 AM – 10:00 PM</div>
+            <div>Friday – Saturday: 11:00 AM – Midnight (Late Night Window)</div>
+          </div>
+          <button onclick="openOrderModal()" class="w-full py-3 rounded-xl bg-stone-950 text-white font-black text-xs uppercase tracking-wider hover:bg-stone-850 transition-colors">
+            Order Pickup At Hayes Valley
+          </button>
+        </div>
+
+        <!-- Location 2 -->
+        <div class="p-8 rounded-3xl bg-[#FAF8F5] border-2 border-stone-900 shadow-md space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full bg-sizzle-500 text-white text-xs font-black uppercase">Late Night Trailer</span>
+            <span class="text-xs text-emerald-700 font-bold flex items-center gap-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Open Late
+            </span>
+          </div>
+          <h3 class="font-display text-2xl font-black text-stone-950 uppercase">Mission District Trailer</h3>
+          <p class="text-stone-600 text-sm font-medium">2100 Mission Street, San Francisco, CA 94110<br>Near 17th Street Bart</p>
+          <div class="pt-2 border-t border-stone-200 text-xs text-stone-700 space-y-1 font-semibold">
+            <div>Wednesday – Sunday: 5:00 PM – 2:00 AM</div>
+            <div>Walk-up window & outdoor patio benches</div>
+          </div>
+          <button onclick="openOrderModal()" class="w-full py-3 rounded-xl bg-stone-950 text-white font-black text-xs uppercase tracking-wider hover:bg-stone-850 transition-colors">
+            Order Pickup At Mission Trailer
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ACCORDION ==================== -->
+  <section id="faq" class="py-16 sm:py-24 bg-[#FAF8F5] border-t-2 border-stone-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 sm:mb-16 space-y-2 sm:space-y-3">
+        <span class="text-xs uppercase tracking-[0.25em] text-sizzle-600 font-black">Good Questions</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-black text-stone-950 uppercase">Smash Burger FAQ</h2>
+      </div>
+
+      <div class="space-y-3 sm:space-y-4">
+        
+        <div class="faq-item bg-white rounded-2xl border-2 border-stone-900 overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full px-5 py-4 sm:px-6 sm:py-5 text-left font-display font-black text-base sm:text-lg text-stone-950 flex justify-between items-center hover:bg-stone-50 transition-colors uppercase">
+            <span class="pr-3">Why do you fry in 100% beef tallow instead of seed oils?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-stone-500 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 sm:px-6 sm:pb-6 text-stone-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-stone-100 pt-3 sm:pt-4">
+            Industrial seed oils (canola, soybean, corn) oxidize under high frying heat and leave fries greasy and limp. Pure grass-fed beef tallow has a 420°F smoke point, zero industrial processing, and creates an incomparably crisp, golden exterior with rich savory depth. It's the way fast food was made in the 1950s.
+          </div>
+        </div>
+
+        <div class="faq-item bg-white rounded-2xl border-2 border-stone-900 overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full px-5 py-4 sm:px-6 sm:py-5 text-left font-display font-black text-base sm:text-lg text-stone-950 flex justify-between items-center hover:bg-stone-50 transition-colors uppercase">
+            <span class="pr-3">Do you offer gluten-free buns or lettuce wraps?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-stone-500 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 sm:px-6 sm:pb-6 text-stone-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-stone-100 pt-3 sm:pt-4">
+            Yes! We offer artisan gluten-free potato rolls toasted on a designated clean griddle section for +$1.50, as well as a double-layered crisp iceberg lettuce wrap at no extra charge. Our beef blend, tallow, and Heavy Sauce are all 100% naturally gluten-free.
+          </div>
+        </div>
+
+        <div class="faq-item bg-white rounded-2xl border-2 border-stone-900 overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full px-5 py-4 sm:px-6 sm:py-5 text-left font-display font-black text-base sm:text-lg text-stone-950 flex justify-between items-center hover:bg-stone-50 transition-colors uppercase">
+            <span class="pr-3">How fast is online ordering pickup?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-stone-500 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 sm:px-6 sm:pb-6 text-stone-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-stone-100 pt-3 sm:pt-4">
+            Because thin smash patties cook in under 90 seconds on our 650°F chromium griddle, online orders are typically bagged and waiting on our heated pickup counter within 8 to 12 minutes of placing your order. You can skip the line entirely!
+          </div>
+        </div>
+
+        <div class="faq-item bg-white rounded-2xl border-2 border-stone-900 overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full px-5 py-4 sm:px-6 sm:py-5 text-left font-display font-black text-base sm:text-lg text-stone-950 flex justify-between items-center hover:bg-stone-50 transition-colors uppercase">
+            <span class="pr-3">Is your beef certified Halal?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-stone-500 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 sm:px-6 sm:pb-6 text-stone-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-stone-100 pt-3 sm:pt-4">
+            Yes, 100%. All of our California Wagyu brisket and chuck primals are 100% certified Halal from pasture to slaughterhouse. We also use a dedicated bacon press and separate pans so there is zero cross-contamination.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-stone-950 text-stone-400 text-xs py-12 border-t-2 border-stone-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-mustard-500 flex items-center justify-center text-stone-950 font-black">
+          <i data-lucide="flame" class="w-4 h-4"></i>
+        </div>
+        <span class="font-display text-lg font-black text-white uppercase tracking-tight">HEAVY CRUST SMASH CO.</span>
+      </div>
+      <div class="text-center sm:text-left text-stone-500">
+        &copy; 2026 Heavy Crust Burger Co. All rights reserved. Smashed fresh in San Francisco.
+      </div>
+      <div class="flex gap-6 font-bold text-stone-400">
+        <a href="#" class="hover:text-white">Privacy</a>
+        <a href="#" class="hover:text-white">Allergens</a>
+        <a href="#" class="hover:text-white">Franchise Inquiries</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== QUICK PICKUP ORDER MODAL ==================== -->
+  <div id="orderModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border-2 border-stone-900 relative my-auto max-h-[92vh] overflow-y-auto">
+      <button onclick="closeOrderModal()" aria-label="Close modal" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-full flex items-center justify-center text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-colors">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="space-y-1 sm:space-y-2 mb-5 sm:mb-6 pr-8">
+        <span class="text-xs uppercase tracking-wider font-black text-sizzle-600">Fast Griddle Pickup</span>
+        <h3 class="font-display text-2xl font-black text-stone-950 uppercase">Confirm Pickup Order</h3>
+        <p class="text-xs text-stone-600 font-medium">Fresh off the chrome griddle in 8–10 minutes. Skip the line upon arrival.</p>
+      </div>
+
+      <form onsubmit="handleFormSubmit(event)" class="space-y-3.5 sm:space-y-4">
+        <div>
+          <label class="block text-xs font-black uppercase tracking-wider text-stone-700 mb-1">Your Full Name</label>
+          <input type="text" required placeholder="e.g. Leo Vance" class="w-full px-3.5 py-3 rounded-xl border-2 border-stone-900 text-base sm:text-sm font-semibold focus:ring-2 focus:ring-mustard-500 focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-black uppercase tracking-wider text-stone-700 mb-1">Mobile Phone (For SMS Ready Alert)</label>
+            <input type="tel" required placeholder="(415) 000-0000" class="w-full px-3.5 py-3 rounded-xl border-2 border-stone-900 text-base sm:text-sm font-semibold focus:ring-2 focus:ring-mustard-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-black uppercase tracking-wider text-stone-700 mb-1">Pickup Location</label>
+            <select class="w-full px-3.5 py-3 rounded-xl border-2 border-stone-900 text-base sm:text-sm font-semibold focus:ring-2 focus:ring-mustard-500 focus:outline-none bg-white">
+              <option selected>Hayes Valley Flagship (Gough St)</option>
+              <option>Mission District Trailer (Mission St)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-black uppercase tracking-wider text-stone-700 mb-1">Selected Stack</label>
+            <input id="modalStackInput" type="text" readonly value="Double Smash (6oz)" class="w-full px-3.5 py-3 rounded-xl border border-stone-300 bg-stone-100 text-xs sm:text-sm font-bold text-stone-800">
+          </div>
+          <div>
+            <label class="block text-xs font-black uppercase tracking-wider text-stone-700 mb-1">Target Pickup Time</label>
+            <select class="w-full px-3.5 py-3 rounded-xl border-2 border-stone-900 text-base sm:text-sm font-semibold focus:ring-2 focus:ring-mustard-500 focus:outline-none bg-white">
+              <option selected>ASAP (8 – 12 Mins)</option>
+              <option>In 30 Minutes</option>
+              <option>In 45 Minutes</option>
+              <option>In 1 Hour</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-black uppercase tracking-wider text-stone-700 mb-1">Special Kitchen Notes (e.g. Extra pickles, no onions)</label>
+          <textarea rows="2" placeholder="Tell the grill cook..." class="w-full px-3.5 py-2.5 rounded-xl border-2 border-stone-900 text-base sm:text-sm font-semibold focus:ring-2 focus:ring-mustard-500 focus:outline-none"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-4 rounded-xl bg-mustard-500 hover:bg-mustard-400 text-stone-950 font-black text-xs sm:text-sm tracking-wider uppercase transition-all shadow-xl flex items-center justify-center gap-2 mt-2 border-2 border-stone-900">
+          <span>Send Order To Griddle & Pay At Counter</span>
+          <i data-lucide="flame" class="w-4 h-4"></i>
+        </button>
+      </form>
+
+      <!-- Confirmation Toast -->
+      <div id="formSuccessToast" class="hidden absolute inset-0 bg-white p-6 sm:p-8 flex flex-col items-center justify-center text-center space-y-4">
+        <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center border-2 border-emerald-500">
+          <i data-lucide="check" class="w-8 h-8"></i>
+        </div>
+        <h4 class="font-display text-2xl font-black text-stone-950 uppercase">Order Fired Up!</h4>
+        <p class="text-stone-700 text-xs sm:text-sm font-medium max-w-sm">
+          Patties are hitting the chrome griddle now. We just sent an SMS confirmation to your phone. See you in 8–10 minutes!
+        </p>
+        <button onclick="closeOrderModal()" class="px-6 py-2.5 bg-stone-950 text-white rounded-xl text-xs sm:text-sm font-bold uppercase">Close Window</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+
+    function toggleMobileMenu() {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      if (isHidden) {
+        menuIcon.setAttribute('data-lucide', 'menu');
+      } else {
+        menuIcon.setAttribute('data-lucide', 'x');
+      }
+      lucide.createIcons();
+    }
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+    document.querySelectorAll('.mobile-link').forEach(l => {
+      l.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.setAttribute('data-lucide', 'menu');
+        lucide.createIcons();
+      });
+    });
+
+    // ----------------------------------------------------
+    // Build Your Custom Smash Logic
+    // ----------------------------------------------------
+    let currentPattyBase = 12.50;
+    let currentPattyName = 'Double Smash (6oz)';
+    let currentStyleExtra = 0;
+    let currentStyleName = 'The Oklahoma Onion Melt';
+
+    function setPattyStack(type, price, name, btn) {
+      currentPattyBase = price;
+      currentPattyName = name;
+
+      document.querySelectorAll('.patty-btn').forEach(b => {
+        b.classList.remove('border-2', 'border-mustard-500', 'bg-mustard-500/20', 'text-mustard-300');
+        b.classList.add('border', 'border-stone-700', 'bg-stone-850', 'text-white');
+      });
+      btn.classList.add('border-2', 'border-mustard-500', 'bg-mustard-500/20', 'text-mustard-300');
+      btn.classList.remove('border', 'border-stone-700', 'bg-stone-850', 'text-white');
+
+      document.getElementById('orderStackTitle').textContent = name;
+      document.getElementById('orderBasePrice').textContent = `$${price.toFixed(2)}`;
+      document.getElementById('modalStackInput').value = name;
+      recalculateTotal();
+    }
+
+    function updateStyle(name, extraCost) {
+      currentStyleName = name;
+      currentStyleExtra = extraCost;
+      document.getElementById('orderStyleTitle').textContent = `Style: ${name}`;
+
+      document.querySelectorAll('.style-option').forEach(el => {
+        el.classList.remove('border-2', 'border-mustard-500', 'bg-stone-800');
+        el.classList.add('border', 'border-stone-700');
+      });
+
+      const checkedRadio = document.querySelector('input[name="style"]:checked');
+      if (checkedRadio) {
+        const parent = checkedRadio.closest('.style-option');
+        if (parent) {
+          parent.classList.add('border-2', 'border-mustard-500', 'bg-stone-800');
+          parent.classList.remove('border', 'border-stone-700');
+        }
+      }
+      recalculateTotal();
+    }
+
+    function recalculateTotal() {
+      let total = currentPattyBase + currentStyleExtra;
+      const friesChecked = document.getElementById('sideFries').checked;
+      const shakeChecked = document.getElementById('sideShake').checked;
+
+      const addonsContainer = document.getElementById('orderAddonsList');
+      let html = `<div>• Genuine Martin's Famous Potato Roll</div><div>• Melted American Cheese</div><div>• House Dill Pickles & Heavy Sauce</div>`;
+
+      if (friesChecked) {
+        total += 4.50;
+        html += `<div class="text-mustard-300 font-bold">• 100% Beef Tallow Crinkle Fries (+$4.50)</div>`;
+      }
+      if (shakeChecked) {
+        total += 6.50;
+        html += `<div class="text-mustard-300 font-bold">• Salted Malt Caramel Shake (+$6.50)</div>`;
+      }
+
+      addonsContainer.innerHTML = html;
+      document.getElementById('orderTotalPrice').textContent = `$${total.toFixed(2)}`;
+    }
+
+    // ----------------------------------------------------
+    // Full Menu Filtering
+    // ----------------------------------------------------
+    function filterBurgerMenu(category, tabBtn) {
+      document.querySelectorAll('.bmenu-tab').forEach(t => {
+        t.classList.remove('bg-stone-950', 'text-white');
+        t.classList.add('bg-stone-100', 'text-stone-700');
+      });
+      tabBtn.classList.add('bg-stone-950', 'text-white');
+      tabBtn.classList.remove('bg-stone-100', 'text-stone-700');
+
+      document.querySelectorAll('.bitem-card').forEach(card => {
+        if (card.getAttribute('data-type') === category) {
+          card.classList.remove('hidden');
+          card.classList.add('flex');
+        } else {
+          card.classList.add('hidden');
+          card.classList.remove('flex');
+        }
+      });
+    }
+
+    // ----------------------------------------------------
+    // FAQ Accordion
+    // ----------------------------------------------------
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('i');
+      const isOpen = !content.classList.contains('hidden');
+
+      document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('.faq-item i').forEach(i => i.style.transform = 'rotate(0deg)');
+
+      if (!isOpen) {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // ----------------------------------------------------
+    // Modal Handling (Mobile-Safe)
+    // ----------------------------------------------------
+    const orderModal = document.getElementById('orderModal');
+    function openOrderModal() {
+      orderModal.classList.remove('hidden');
+      orderModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeOrderModal() {
+      orderModal.classList.add('hidden');
+      orderModal.classList.remove('flex');
+      document.body.style.overflow = '';
+      document.getElementById('formSuccessToast').classList.add('hidden');
+    }
+
+    orderModal.addEventListener('click', (e) => {
+      if (e.target === orderModal) closeOrderModal();
+    });
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      document.getElementById('formSuccessToast').classList.remove('hidden');
+      setTimeout(() => lucide.createIcons(), 50);
+    }
+  </script>
+</body>
+</html>
